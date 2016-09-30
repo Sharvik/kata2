@@ -13,16 +13,17 @@ public class Histogram {
     public int[] getVector() {
         return vector;
     }
-
-    public HashMap<Integer,Integer> getHistogram(){
-        HashMap<Integer,Integer> histogram = new HashMap<>();
-        for(int key : vector){
-            if(histogram.containsKey(key)){
-                histogram.put(key, histogram.get(key)+1);
-            }else{
-                histogram.put(key,1);
-            }
+    
+    public HashMap<Integer,Integer> getHistogram() {
+        HashMap<Integer,Integer> histo = new HashMap<>();
+        
+        for (int key : vector) {
+            if(!histo.containsKey(key))
+                histo.put(key,0);
+            histo.put(key,histo.get(key)+1);
         }
-        return histogram;
+        
+        return histo;
     }
+    
 }
